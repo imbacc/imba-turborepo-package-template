@@ -43,6 +43,7 @@
     "cross-env": "^7.0.3",
     "cz-customizable": "^7.0.0",
     "docsify": "^4.13.0",
+    "docsify-cli": "^4.4.4",
     "eslint": "^8.34.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "husky": "^8.0.3",
