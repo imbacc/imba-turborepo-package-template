@@ -43,15 +43,6 @@ pnpm run clear:dist
 pnpm run clear:all
 ```
 
-## 清除所有packages里的不必要的文件
-```
-pnpm run clear:node
-// or
-pnpm run clear:dist
-// or
-pnpm run clear:all
-```
-
 ## 根据docsify轻量级生成文档内容
 ```
 pnpm run docs
@@ -79,7 +70,9 @@ pnpm run pub:all
 
 ## 可采用tsup-build
 ## tscup通过esbuild编译的。cjs,mjs,dts混合编译可以生成，但是代码没压缩，没经过webpack和babel-loader。
+```
 pnpm -F imba-package run tsup-build
+```
 
 ## 可编写window和dom基本测试案例
 ## jsdom追加了基本window和document功能,如下。
