@@ -1,0 +1,8 @@
+{
+  "name": "config",
+  "version": "0.0.0",
+  "files": [
+    "webpack.config.js",
+    "tsconfig.json"
+  ]
+}

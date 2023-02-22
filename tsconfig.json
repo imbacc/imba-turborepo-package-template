@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true
+  },
+  "include": ["./packages/**/*.ts", "./packages/**/*.tsx", "./packages/**/*.vue"],
+  "exclude": ["./apps/**/*.*", "node_modules", "./packages/**/tests", "./apps/docs", "./**/dist", ".history"]
+}
