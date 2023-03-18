@@ -41,7 +41,6 @@ tscDist
 .historty
 .turbo
 .changeset
-.husky
 .vscode
 *.pack
 /dist/*
