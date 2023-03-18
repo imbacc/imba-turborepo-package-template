@@ -43,10 +43,26 @@ const exportEntry = (path) => {
 
 // 默认配置
 const exportWebpackConfig = (dir) => {
+  const plugins = [
+    new ForkTsCheckerWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'libs/types',
+          to: 'types',
+        },
+        {
+          from: 'tsc-dist/*.d.ts',
+          to: '[name][ext]',
+        },
+      ],
+    }),
+  ]
+
   return {
     target: 'web',
     mode: 'production',
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     cache: {
       type: 'filesystem',
       cacheLocation: resolve(dir, '.cache'),
@@ -70,29 +86,12 @@ const exportWebpackConfig = (dir) => {
           exclude: /node-modules/,
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-typescript'],
+            presets: ['@babel/preset-env', '@babel/preset-typescript'],
           },
         },
       ],
     },
-    plugins: [
-      new ForkTsCheckerWebpackPlugin(),
-      new webpack.SourceMapDevToolPlugin({
-        filename: '[name].js.map',
-      }),
-      new CopyPlugin({
-        patterns: [
-          {
-            from: 'libs/types',
-            to: 'types',
-          },
-          {
-            from: 'tsc-dist/*.d.ts',
-            to: '[name][ext]',
-          },
-        ],
-      }),
-    ],
+    plugins,
     optimization: {
       minimize: true,
       minimizer: [
@@ -103,7 +102,6 @@ const exportWebpackConfig = (dir) => {
             warnings: false,
             module: true,
             safari10: true,
-            sourceMap: true,
           },
         }),
       ],

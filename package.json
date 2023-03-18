@@ -6,6 +6,7 @@
     "dist"
   ],
   "workspaces": [
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
@@ -18,7 +19,7 @@
     "clear:all": "pnpm run clear:node && pnpm run clear:dist && rimraf packages/*/.turbo && rimraf packages/*/.cache",
     "docs": "pnpm exec docsify serve docs",
     "adduser": "pnpm adduser --access=public --registry=https://registry.npmjs.org/",
-    "pub:all": "bumpp package.json packages/*/package.json && pnpm -r publish --access public --registry=https://registry.npmjs.org/",
+    "pub": "turbo run pub && turbo run pub2",
     "czc": "git add . && pnpm exec cz",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install"
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.2",
     "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
     "@commitlint/config-conventional": "^17.4.4",
     "@types/chai": "^4.3.4",
@@ -47,7 +49,8 @@
     "eslint": "^8.34.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "husky": "^8.0.3",
-    "imba-eslint-config": "^1.0.2",
+    "imba-config": "^1.0.0",
+    "imba-eslint-config": "^1.0.4",
     "jsdom": "^21.1.0",
     "jsdom-global": "^3.0.2",
     "lint-staged": "^13.1.2",
