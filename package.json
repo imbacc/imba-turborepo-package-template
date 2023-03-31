@@ -17,7 +17,7 @@
     "clear:node": "rimraf packages/*/node_modules && rimraf node_modules",
     "clear:dist": "rimraf packages/*/dist && rimraf packages/*/tsc-dist && rimraf packages/*/tscDist",
     "clear:all": "pnpm run clear:node && pnpm run clear:dist && rimraf packages/*/.turbo && rimraf packages/*/.cache",
-    "docs": "pnpm exec docsify serve docs",
+    "docs": "pnpm exec docsify serve apps/docs",
     "adduser": "pnpm adduser --access=public --registry=https://registry.npmjs.org/",
     "pub": "turbo run pub && turbo run pub2",
     "pub:all": "bumpp package.json packages/*/package.json && pnpm -r publish --access public --registry=https://registry.npmjs.org/",
