@@ -16,8 +16,6 @@
     "lint:fix": "turbo run lint:fix --no-daemon",
     "clear:node": "rimraf packages/*/node_modules && rimraf node_modules",
     "clear:dist": "rimraf packages/*/dist && rimraf packages/*/tsc-dist && rimraf packages/*/tscDist",
-    "clear:all": "pnpm run clear:node && pnpm run clear:dist && rimraf packages/*/.turbo && rimraf packages/*/.cache",
-    "docs": "pnpm exec docsify serve apps/docs",
     "clear:all": "rimraf packages/*/dist && rimraf packages/*/tsc-dist && rimraf packages/*/.turbo && rimraf packages/*/.cache",
     "docs": "pnpm exec docsify serve apps/docs",
     "adduser": "pnpm adduser --access=public --registry=https://registry.npmjs.org/",
