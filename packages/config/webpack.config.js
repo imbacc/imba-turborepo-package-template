@@ -5,25 +5,14 @@ const TerserPlugin = require('terser-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const requireContext = require('require-context')
 
-// tsup entry
-const tsupExportEntry = (path) => {
-  const modulesFiles = requireContext(path, false, /\.ts$/)
-  const modules = modulesFiles.keys().reduce((module, modulePath) => {
-    const moduleFileName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
-    const moduleName = moduleFileName.replace('.ts', '')
-    module[moduleName] = `./libs/${moduleFileName}`
-    return module
-  }, {})
-  return modules
-}
-
-// webpack entry
+// entry出口模块
 const exportEntry = (path) => {
-  const modulesFiles = requireContext(path, false, /\.ts$/)
-  const modules = modulesFiles.keys().reduce((module, modulePath) => {
+  const modulesFiles = requireContext(path, true, /\.ts$/)
+  const keys = modulesFiles.keys().filter((f) => !f.includes('types\\'))
+  const modules = keys.reduce((module, modulePath) => {
     const moduleFileName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
     const moduleName = moduleFileName.replace('.ts', '')
-    module[moduleName] = {
+    module[`${moduleName}.mjs`] = {
       import: `./libs/${moduleFileName}`,
       library: {
         type: 'module',
@@ -43,26 +32,12 @@ const exportEntry = (path) => {
 
 // 默认配置
 const exportWebpackConfig = (dir) => {
-  const plugins = [
-    new ForkTsCheckerWebpackPlugin(),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: 'libs/types',
-          to: 'types',
-        },
-        {
-          from: 'tsc-dist/*.d.ts',
-          to: '[name][ext]',
-        },
-      ],
-    }),
-  ]
-
   return {
+    entry: exportEntry(resolve(dir, 'libs')),
     target: 'web',
     mode: 'production',
-    devtool: 'source-map',
+    // devtool: 'source-map',
+    devtool: false,
     cache: {
       type: 'filesystem',
       cacheLocation: resolve(dir, '.cache'),
@@ -91,7 +66,22 @@ const exportWebpackConfig = (dir) => {
         },
       ],
     },
-    plugins,
+    plugins: [
+      new ForkTsCheckerWebpackPlugin(),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: 'libs/types',
+            to: 'types',
+          },
+          {
+            from: 'tsc-dist/libs',
+            to: '',
+            force: true,
+          },
+        ],
+      }),
+    ],
     optimization: {
       minimize: true,
       minimizer: [
@@ -109,4 +99,4 @@ const exportWebpackConfig = (dir) => {
   }
 }
 
-module.exports = { tsupExportEntry, exportEntry, exportWebpackConfig }
+module.exports = { exportEntry, exportWebpackConfig }

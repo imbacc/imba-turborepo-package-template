@@ -1,5 +1,7 @@
 import * as jsdom from 'jsdom'
 
+declare const global: typeof globalThis & { uni: any }
+
 const dom = new jsdom.JSDOM('<!DOCTYPE html><html><head></head><body></body></html>', {
   url: 'http://localhost/',
   contentType: 'text/html',

@@ -53,7 +53,7 @@ pnpm run docs
 pnpm run czc
 ```
 
-## 准备发布 进行登录
+## 准备发布 进行登录 只需要执行一次
 ```
 pnpm run adduser
 ```
@@ -69,7 +69,7 @@ pnpm run pub:all
 ```
 
 ## 可采用tsup-build
-## tscup通过esbuild编译的。cjs,mjs,dts混合编译可以生成，但是代码没压缩，没经过webpack和babel-loader。
+## tscup通过esbuild编译的。cjs,mjs,dts混合编译可以生成，没经过webpack。
 ```
 pnpm -F imba-package run tsup-build
 ```

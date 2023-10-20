@@ -5,7 +5,9 @@
     "module": "es2020",
     "moduleResolution": "node",
     "allowJs": true,
-    "checkJs": true
+    "checkJs": true,
+    "sourceMap": false,
+    "typeRoots": ["types", "libs/types", "node_modules/@types", "@dcloudio/types"]
   },
   "include": ["./packages/**/*.ts", "./packages/**/*.tsx", "./packages/**/*.vue"],
   "exclude": ["./apps/**/*.*", "node_modules", "./packages/**/tests", "./apps/docs", "./**/dist", ".history"]

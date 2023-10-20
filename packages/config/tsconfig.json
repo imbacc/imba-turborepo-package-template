@@ -3,7 +3,12 @@
   "compilerOptions": {
     "module": "es6",
     "target": "es5",
-    "lib": ["es6", "es5", "esnext", "dom"],
+    "lib": [
+      "es6",
+      "es5",
+      "ESNext",
+      "dom"
+    ],
     "baseUrl": "./",
     "strict": true,
     "jsx": "react",
@@ -15,13 +20,11 @@
     "esModuleInterop": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "noImplicitAny": true,
     "skipLibCheck": true,
     "importHelpers": true,
     "pretty": true,
     "outDir": "tsc-dist",
-    "types": ["@types/node", "@types/chai", "@types/mocha", "@types/webpack", "@types/webpack-env", "@types/jsdom"],
-    "typeRoots": ["types", "config/types", "libs/types", "node_modules/@types"]
+    "typeRoots": ["types", "libs/types", "node_modules/@types", "node_modules/@dcloudio/types"]
   },
   "ts-node": {
     "compilerOptions": {
