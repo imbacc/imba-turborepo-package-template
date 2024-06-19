@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "*",
+    "imba-package": "workspace:*",
     "vue": "*"
   },
   "devDependencies": {

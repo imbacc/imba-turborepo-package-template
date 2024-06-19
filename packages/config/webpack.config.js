@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const { resolve } = require('node:path')
 const webpack = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
@@ -12,7 +12,7 @@ const exportEntry = (path) => {
   const modules = keys.reduce((module, modulePath) => {
     const moduleFileName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
     const moduleName = moduleFileName.replace('.ts', '')
-    module[`${moduleName}.mjs`] = {
+    module[`${moduleName}.esm`] = {
       import: `./libs/${moduleFileName}`,
       library: {
         type: 'module',

@@ -1,4 +1,4 @@
-import { setCache, getCache, delCache, setCacheLoca, getCacheLoca, clearCache, comCache } from 'imba-cache'
+import { setCache, getCache, delCache, setCacheLoca, getCacheLoca, clearCache, comCache } from 'imba-package'
 setCache('test_string', 'string')
 setCache('test_number', 111)
 setCache('test_boolean', true)

@@ -40,6 +40,8 @@ pnpm run clear:node
 // or
 pnpm run clear:dist
 // or
+pnpm run clear:cache
+// or
 pnpm run clear:all
 ```
 
@@ -63,15 +65,14 @@ pnpm run adduser
 pnpm -F imba-package run pub
 ```
 
+## 单个执行编译并发布，不会更新版本号
+```
+pnpm -F imba-package run pub2
+```
+
 ## 选择版本号直接发布 所有packages里包执行publish
 ```
 pnpm run pub:all
-```
-
-## 可采用tsup-build
-## tscup通过esbuild编译的。cjs,mjs,dts混合编译可以生成，没经过webpack。
-```
-pnpm -F imba-package run tsup-build
 ```
 
 ## 可编写window和dom基本测试案例
