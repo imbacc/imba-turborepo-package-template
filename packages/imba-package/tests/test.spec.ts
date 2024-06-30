@@ -1,6 +1,5 @@
 import 'config/jsdom'
-import { expect } from 'chai'
-import { describe, it } from 'mocha'
+import { describe, it, expect } from 'vitest'
 import { fun1, fun2 } from '../libs/index'
 
 describe('imba-package 测试组', () => {

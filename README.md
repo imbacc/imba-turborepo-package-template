@@ -1,6 +1,12 @@
 # Turborepo package npm
 
-基于turborepo package编译开发，webpack打包npm。
+基于turborepo package编译开发，tsup打包npm。
+
+## ✨ Features
+
+- **workspace** - 使用turborepo管理packages
+- **打包优化** - 使用tsup打包esm,cjs
+- **特定命令** - 使用bumpp发版，docsify生成文档
 
 ## 安装到workspace
 ```

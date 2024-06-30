@@ -18,7 +18,7 @@
   "scripts": {
     "build": "tsup",
     "build2": "tsc --build --clean && tsc --declaration --emitDeclarationOnly --outDir ./tsc-dist/libs && webpack --mode production && rimraf tsc-dist",
-    "test": "cross-env TS_NODE_PROJECT='../config/tsconfig.test.json' mocha -r ts-node/register -r jsdom-global/register tests/**/*.spec.*",
+    "test": "vitest",
     "pub": "bumpp && pnpm run pub2",
     "pub2": "pnpm run build && pnpm publish --access=public --registry=https://registry.npmjs.org/",
     "rmpkg": "pnpm unpublish --force",
