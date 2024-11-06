@@ -1,7 +1,8 @@
-const { antfu } = require('@antfu/eslint-config')
-const { eslintConfig, ignoresConfig } = require('imba-config')
+import { antfu } from '@antfu/eslint-config'
+import { eslintConfig, ignoresConfig } from 'imba-config'
 
-module.exports = antfu({
+/** @type {import('eslint').Linter.Config[]} */
+export default antfu({
   typescript: true,
   vue: false,
 
